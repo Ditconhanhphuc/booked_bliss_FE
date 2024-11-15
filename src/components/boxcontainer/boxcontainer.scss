@@ -1,0 +1,9 @@
+.box-container {
+    display: flex;
+    justify-content: space-between;
+
+    .grid__col-4 {
+        flex: 1;
+        padding: 10px; 
+    }
+}
