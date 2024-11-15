@@ -1,0 +1,620 @@
+@use "../../responsive.scss" as responsive;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto Serif', serif;
+}
+
+.align {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center; 
+    
+    @include responsive.sm {
+        display: flex; 
+        justify-content: space-between;
+    align-items: center; 
+
+
+        .current-post-tittle{
+        width: 300px;
+        font-size: 12px;
+        }
+
+        .create-post-container {
+            margin-top:5px;
+            width: 80px;  
+            height: 90px;
+            display: flex; 
+            justify-content: flex-start; 
+
+            .create-post-button {
+                width: 100%; 
+                padding: 10px; 
+
+                .icon-container {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .icon {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+    }
+}
+
+.create-post-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    margin-bottom: 5px;
+
+    .create-post-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #2A2A68;
+        width: 300px;
+        border-radius: 10px;
+        padding: 10px;
+        color: azure;
+        font-size: 20px;
+        font-family: 'Roboto Serif', serif;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+        margin-top: 40px;
+        margin-right: 5px;
+
+        .icon-container {
+            margin-right: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        &:hover {
+            background-color: white;
+            color: #2A2A68;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+    }
+
+    @include responsive.sm {
+        .create-post-button {
+            width: 180px; 
+            font-size: 0;
+            margin-left: 5px;
+
+            .icon-container {
+                margin-right: 0; 
+            }
+        }
+    }
+
+    @include responsive.md{
+        .create-post-button {
+            width: 180px; 
+            font-size: 0px;
+            margin-left: 10px;
+            // padding:10px;
+            // margin-bottom: 20px;
+
+            .icon-container {
+                margin-right: 10px; 
+            }
+        }
+    }
+}
+
+    .send-msg-container{
+        display: flex; 
+    justify-content: center; 
+    margin: 20px 0; 
+    margin-bottom: 5px;
+
+    .create-post-button {
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        background-color: #2A2A68; 
+        width: 300px; 
+        border-radius: 10px; 
+        padding: 10px; 
+        color: azure; 
+        font-size: 20px; 
+        font-family: 'Roboto Serif', serif;
+        cursor:pointer; 
+        transition: background-color 0.3s, color 0.3s; 
+
+        margin-top: 40px; 
+        margin-right:5px;
+
+        .icon-container {
+            margin-right: 8px;
+            display: flex; 
+            align-items: center; 
+        }
+
+        .icon {
+            width: 20px; 
+            height: 20px; 
+        }
+
+        &:hover {
+            background-color: white; 
+            color: #2A2A68; 
+        }
+
+        &:focus {
+            outline: none; 
+        }
+    }
+
+    }
+.profile-container {
+    position: relative;
+    width: 100%;
+}
+
+.cover {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    z-index: -1;
+
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 140%;
+        height: auto;
+        min-height: 100%;
+        min-width: 100%;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+    }
+    @include responsive.sm {
+        height: 200px;
+    }
+}
+
+.btn-side {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: flex-end;
+    gap: 10px;
+    margin-right: 30px;
+
+    @include responsive.sm {
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.send-msg-button {
+    display: flex;
+    background-color: #2A2A68; 
+    border-radius: 10px; 
+    padding: 9px;           
+    cursor: pointer; 
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; 
+
+    .icon2 {
+        width: 50px;
+        height:50px;
+    }
+
+    &:hover {
+        background-color: white; 
+        color: white; 
+        font-weight: 100;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    }
+
+    &:active {
+        background-color: #e0e0e0; 
+    }
+
+    @include responsive.sm {
+        padding: 7px;
+    }
+
+}
+
+.edit-btn {
+    display: flex;
+    background-color: white; 
+    border-radius: 10px; 
+    margin-bottom: 4.5px;
+    padding: 25px; 
+    color: #2A2A68; 
+    font-family: 'Roboto Serif', serif;
+    font-size: 20px; 
+    cursor: pointer; 
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; 
+    &:hover {
+        background-color: #2A2A68; 
+        color: white; 
+        font-weight: 100;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    }
+
+    &:active {
+        background-color: #e0e0e0; 
+    }
+
+    @include responsive.sm {
+        width:100px;
+        height: 75px;
+        margin-top: 15px;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+
+    }
+
+    @include responsive.md {
+        width:100px;
+        height: 75px;
+        margin-top: 15px;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+    }
+}
+
+.profile-box {
+    position: relative;
+    margin-top: 250px;
+    margin-left: 70px;
+    margin-right: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    height: 120px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #2A2A68;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+
+    .Avatar {
+        width: 70px;
+        height: 100%;
+        border-radius: 5px;
+    }
+
+    .user-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-right: 510px;
+
+        .username {
+            font-family: 'Roboto Serif', serif;
+            margin-left: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: azure;
+        }
+
+        .DOB {
+            font-family: 'Roboto Serif', serif;
+            margin-left: 20px;
+            font-size: 20px;
+            font-weight: thin;
+            color: azure;
+        }
+
+        @include responsive.sm {
+            margin-right: 0;
+            width: 100%;
+            .user-info{
+                justify-content: flex-start;
+                align-items: flex-start;
+            }
+           .DOB {              
+                font-size: 10px;
+            }
+            .username{
+                font-size: 10px !important;
+            }             
+        }
+
+        @include responsive.md {
+            padding: 20px;
+
+            margin-right: 0;
+            width: 100%;
+            .user-info{
+                justify-content: flex-start;
+                align-items: flex-start;
+            }
+           .DOB {              
+                font-size: 15px;
+            }
+            .username{
+                font-size: 15px !important;
+            }  
+        }
+    }
+
+    @include responsive.sm {
+        margin-top: 50px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    @include responsive.md {
+        margin-top: 70px;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+}
+
+.current-post-tittle, .saved-post-tittle, .pending-post-tittle {
+    margin-top: 40px;
+    margin-left: 8px;
+    display: flex;
+    justify-content: center;
+    background-color: #2A2A68;
+    width: 300px;
+    border-radius: 10px;
+    padding: 10px;
+    color: azure;
+    font-size: 10px;
+
+    @include responsive.sm {
+        width: 300px;
+        font-size: 12px;
+    }
+}
+
+// .saved-post-container, .pending-post-container {
+//     display: flex;
+//     gap: 85px;
+//     flex-wrap: wrap;
+//     margin-left: 18px;
+//     margin-top: 20px;
+//     padding-bottom: 30px;
+
+//     .post-box {
+//         width: 350px;
+//         height: 350px;
+//         background-color: #B0B0B0;
+//         display: flex;
+//         align-items: center;
+//         flex-direction: column;
+//         border-radius: 10px;
+//         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+//         color: white;
+//         font-size: 18px;
+//         font-weight: bold;
+//         text-align: center;
+//         position: relative;
+//         cursor: pointer;
+//         transition: transform 0.3s ease-in-out;
+
+//         &:hover {
+//             transform: scale(1.05);
+//         }
+
+//         .post-title {
+//             position: absolute;
+//             width: 100%;
+//             height: auto; 
+//             bottom: 0;
+//             background-color: white;
+//             color: black;
+//             font-size: 14px;
+//             font-weight: bold;
+//             border-radius: 0 0 10px 10px;
+//             padding: 10px; 
+//             display: flex;
+//             flex-direction: column; 
+//             align-items: flex-start; 
+
+//             h1 {
+//                 text-align: left;
+//                 font-size: 15px;
+//                 font-weight: bolder;
+//                 margin-bottom: 5px;
+//             }
+
+//             .pt-heading {
+//                 display: flex;
+//                 align-items: center;
+//                 margin-bottom: 4px;
+
+//                 .icon-link {
+//                     display: flex;
+//                     align-items: center;
+//                     text-align: left;
+//                     text-decoration: none;
+//                     color: black;
+
+//                     .icon {
+//                         width: 20px;
+//                         height: 20px;
+//                         margin-right: 3px;
+//                     }
+//                 }
+//             }
+
+//             .post-icon {
+//                 display: flex;
+//                 justify-content: center;
+//                 gap: 15px;
+
+//                 .icon-link {
+//                     display: flex;
+//                     align-items: flex-end;
+//                     text-decoration: none;
+//                     color: black;
+
+//                     .icon {
+//                         width: 25px;
+//                         height: 25px;
+//                         margin-right: 10px;
+//                     }
+//                 }
+//             }
+//         }
+
+
+//         @include responsive.md {
+//             width: 250px;
+//             height: 300px;
+//         }
+
+//         @include responsive.sm {
+//             width: 60%;
+
+//             .post-title {
+//                 font-size: 12px;
+//                 height: 100px;
+//             }
+//         }
+//     }
+// }
+
+
+.current-post-container {
+    display: flex;
+    gap: 85px !important;
+    flex-wrap: wrap;
+    margin-left: 18px;
+    margin-top: 20px;
+
+    .post-box {
+        width: 350px !important;
+        height: 350px !important;
+        background-color: #B0B0B0;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        .post-title {
+            position: absolute;
+            width: 100%;
+            height: auto; 
+            bottom: 0;
+            background-color: white;
+            color: black;
+            font-size: 14px !important;
+            font-weight: bold;
+            border-radius: 0 0 10px 10px;
+            padding: 10px; 
+            display: flex;
+            flex-direction: column; 
+            align-items: flex-start; 
+
+            h1 {
+                text-align: left;
+                font-size: 15px !important;
+                font-weight: bolder;
+                margin-bottom: 5px;
+            }
+
+            .pt-heading {
+                display: flex;
+                align-items: center;
+                margin-bottom: 4px;
+
+                .icon-link {
+                    display: flex;
+                    align-items: center;
+                    text-align: left;
+                    text-decoration: none;
+                    color: black;
+
+                    .icon {
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 3px;
+                    }
+                }
+            }
+
+            .post-icon {
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+
+                .icon-link {
+                    display: flex;
+                    align-items: flex-end;
+                    text-decoration: none;
+                    color: black;
+
+                    .icon {
+                        width: 25px;
+                        height: 25px;
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+
+        @include responsive.sm {
+            width: 100%;
+            height: auto;
+        }
+
+        @include responsive.md {
+        
+        }
+
+        @include responsive.sm {
+            width: 120px;
+            height: 180px;
+
+            .post-title {
+                font-size: 12px;
+                height: 30px;
+            }
+        }
+    }
+}
+
+.create-new-post {
+    margin-top: 40px;
+    margin-left: 8px;
+    display: flex;
+    justify-content: center;
+    background-color: #2A2A68;
+    width: 300px;
+    border-radius: 10px;
+    padding: 10px;
+    color: azure;
+    font-size: 10px;
+
+    @include responsive.sm {
+        width: 200px;
+    }
+}
