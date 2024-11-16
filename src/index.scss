@@ -9,9 +9,16 @@ a {
     color: inherit;
 }
 
-body {
+html, body {
     font-family: "Hedvig Letters Serif", serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+}
+
+button, input, textarea, select {
+    font-family: "Hedvig Letters Serif", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;                   /* Kích thước font */
 }

@@ -1,9 +1,11 @@
 import Navbar from "../../components/navbar/Navbar";
 import { useNavigate } from 'react-router-dom';
 import "./userprofile.scss";
-// import BoxContainer from "../../components/boxcontainer/BoxContainer";
+import { listData } from '../../lib/dummydata';
+import Card from '../../components/card/card';
 
 function Profile() {
+    const data = listData;
     const navigate = useNavigate();
 
     const handleCreatePost = () => {
@@ -27,7 +29,6 @@ function Profile() {
 
     return (
         <div>
-            <Navbar />
             <div className="profile-container">
                 <div className="cover">
                     <img src="/profile_cover.png" alt="Profile Cover" />
@@ -45,7 +46,7 @@ function Profile() {
                         {/* edit profile btn */}
                         <div className="profile-edit-container">
                             <button className="edit-btn" onClick={handleAjustAccount}>
-                               Edit Profile
+                                Edit Profile
                             </button>
                         </div>
 
@@ -79,152 +80,19 @@ function Profile() {
 
             {/* current post section */}
 
-            <div className="current-post-container">
-                {boxesData.map((box, index) => (
-                    <div key={index} className="post-box">
-                        <h2>{box.title}</h2>
-                        <p>{box.content}</p>
-                        <div className="post-title">
-                            <h1>Phu Nhuan Charme De Cottage</h1>
-                            <div className="pt-heading">
-                                <a href="#" alt="Area" className="icon-link">
-                                    <img src="/location.png" alt="Area" className="icon" />
-                                    Hoa Su St, District Phu Nhuan, Ward 8 HCMC
-                                </a>
-                            </div>
-                            <div className="post-icon">
-                                <a href="#" alt="Area" className="icon-link">
-                                    <img src="/area.png" alt="Area" className="icon" />
-                                    30x50
-                                </a>
-                                <a href="#" alt="Bed" className="icon-link">
-
-                                    <img src="/bed.png" alt="Bed" className="icon" />
-                                    3
-                                </a>
-                                <a href="#" alt="Bathroom" className="icon-link">
-
-                                    <img src="/bathroom.png" alt="Bathroom" className="icon" />
-                                    2
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+            <div className="cardContainter">
+                {data.map(item => (
+                    <Card key={item.id} item={item} />
                 ))}
             </div>
-            {/* pending post section */}
-            {/* <div className="pending-post-tittle">
-                <h1>Your Pending Posts</h1>
-            </div>
-
-            <div className="pending-post-container">
-                {boxesData.map((box, index) => (
-                    <div key={index} className="post-box">
-                        <h2>{box.title}</h2>
-                        <p>{box.content}</p>
-                        <div className="post-title">
-                            <h1>Phu Nhuan Charme De Cottage</h1>
-                            <div className="pt-heading">
-                                <a href="#" alt="Area" className="icon-link">
-                                    <img src="/location.png" alt="Area" className="icon" />
-                                    Hoa Su St, District Phu Nhuan, Ward 8 HCMC
-                                </a>
-                            </div>
-                            <div className="post-icon">
-                                <a href="#" alt="Area" className="icon-link">
-                                    <img src="/area.png" alt="Area" className="icon" />
-                                    30x50
-                                </a>
-                                <a href="#" alt="Bed" className="icon-link">
-
-                                    <img src="/bed.png" alt="Bed" className="icon" />
-                                    3
-                                </a>
-                                <a href="#" alt="Bathroom" className="icon-link">
-
-                                    <img src="/bathroom.png" alt="Bathroom" className="icon" />
-                                    2
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-             */}
-
-  {/* pending post section */}
-            <div className="pending-post-tittle">
-                <h1>Your Pending Posts</h1>
-            </div>
-            <div className="current-post-container">
-                {boxesData.map((box, index) => (
-                    <div key={index} className="post-box">
-                        <h2>{box.title}</h2>
-                        <p>{box.content}</p>
-                        <div className="post-title">
-                            <h1>Phu Nhuan Charme De Cottage</h1>
-                            <div className="pt-heading">
-                                <a href="#" alt="Area" className="icon-link">
-                                    <img src="/location.png" alt="Area" className="icon" />
-                                    Hoa Su St, District Phu Nhuan, Ward 8 HCMC
-                                </a>
-                            </div>
-                            <div className="post-icon">
-                                <a href="#" alt="Area" className="icon-link">
-                                    <img src="/area.png" alt="Area" className="icon" />
-                                    30x50
-                                </a>
-                                <a href="#" alt="Bed" className="icon-link">
-
-                                    <img src="/bed.png" alt="Bed" className="icon" />
-                                    3
-                                </a>
-                                <a href="#" alt="Bathroom" className="icon-link">
-
-                                    <img src="/bathroom.png" alt="Bathroom" className="icon" />
-                                    2
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
             {/* your saved post section */}
+
             <div className="saved-post-tittle">
                 <h1>Your Saved List</h1>
             </div>
-            <div className="current-post-container">
-                {boxesData.map((box, index) => (
-                    <div key={index} className="post-box">
-                        <h2>{box.title}</h2>
-                        <p>{box.content}</p>
-                        <div className="post-title">
-                            <h1>Phu Nhuan Charme De Cottage</h1>
-                            <div className="pt-heading">
-                                <a href="#" alt="Area" className="icon-link">
-                                    <img src="/location.png" alt="Area" className="icon" />
-                                    Hoa Su St, District Phu Nhuan, Ward 8 HCMC
-                                </a>
-                            </div>
-                            <div className="post-icon">
-                                <a href="#" alt="Area" className="icon-link">
-                                    <img src="/area.png" alt="Area" className="icon" />
-                                    30x50
-                                </a>
-                                <a href="#" alt="Bed" className="icon-link">
-
-                                    <img src="/bed.png" alt="Bed" className="icon" />
-                                    3
-                                </a>
-                                <a href="#" alt="Bathroom" className="icon-link">
-
-                                    <img src="/bathroom.png" alt="Bathroom" className="icon" />
-                                    2
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+            <div className="cardContainter">
+                {data.map(item => (
+                    <Card key={item.id} item={item} />
                 ))}
             </div>
         </div>
