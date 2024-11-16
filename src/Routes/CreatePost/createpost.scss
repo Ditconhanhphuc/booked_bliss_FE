@@ -58,12 +58,17 @@
 }
 
 .current-post-container {
-    display: flex;
-    gap: 25px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
     margin-left: 18px;
     margin-top: 20px;
-    padding-bottom: 50px;
+    justify-items: center;
+    /* Center items horizontally */
+    align-items: center;
+    /* Center items vertically */
+    overflow: hidden;
 
     .post-box {
         width: 220px;
