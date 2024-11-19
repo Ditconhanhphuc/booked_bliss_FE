@@ -3,10 +3,21 @@ import { useNavigate } from 'react-router-dom';
 import "./userprofile.scss";
 import { listData } from '../../lib/dummydata';
 import Card from '../../components/card/card';
+import apiRequest from "../../lib/apiRequest";
 
 function Profile() {
-    const data = listData;
+
     const navigate = useNavigate();
+    const handleLogout = async ()=>{
+        try{
+            const res = apiRequest.post("/auth/logout");
+            localStorage.removeItem("user");
+            navigate("/")
+        }catch(err){
+            console.log(err)
+        }
+    }
+    const data = listData;
 
     const handleCreatePost = () => {
         navigate('/CreatePost');
@@ -39,7 +50,7 @@ function Profile() {
                     <div className="user-info">
                         <p className="username">Simon Doe</p>
 
-                        <p className="DOB">14 Sep 2003</p>
+                        <p className="email">simon@gmail.com</p>
                     </div>
 
                     <div className="btn-side">
@@ -58,6 +69,7 @@ function Profile() {
                                 </span>
                             </button>
                         </div>
+                        <button className="logout-btn" onClick={handleLogout}>Logout</button>
                     </div>
                 </div>
 
