@@ -18,8 +18,8 @@ function Navbar() {
                 <a href="/">Cooperation</a>
             </div>
             <div className="navbar-right">
-                <a href="/" className="sign">Sign In</a>
-                <a href="/" className="sign">Sign Up</a>
+                <a href="/login" className="sign">Sign In</a>
+                <a href="/register" className="sign">Sign Up</a>
                 <div className="menuIcon">
                     <img src="/menu.png" alt="" onClick={() => setOpen((prev) => !prev)}/>
                 </div>

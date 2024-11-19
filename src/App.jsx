@@ -14,6 +14,8 @@ import Chat from "./Routes/Chat/Chat"
 import CreatePost from "./Routes/CreatePost/CreatePost";
 import AdjustAccount from "./Routes/AdjustAccount/AdjustAccount";
 import HomePage from "./routes/homePage/homePage";
+import Register from "./routes/register/register";
+import Login from "./routes/login/login";
 
 
 function App() {
@@ -27,6 +29,14 @@ function App() {
           {
             path:"/",
             element: <HomePage/>
+          },
+          {
+            path:"/register",
+            element: <Register/>
+          },
+          {
+            path:"/login",
+            element: <Login/>
           },
           {
             path:"/:id",
