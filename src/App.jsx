@@ -13,7 +13,7 @@ import Profile from "./Routes/UserProfile/userProfile";
 import Chat from "./Routes/Chat/Chat"
 import CreatePost from "./Routes/CreatePost/CreatePost";
 import AdjustAccount from "./Routes/AdjustAccount/AdjustAccount";
-import LandingPage from "./Routes/LandingPage/LandingPage";
+import HomePage from "./routes/homePage/homePage";
 
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
         children:[
           {
             path:"/",
-            element: <LandingPage/>
+            element: <HomePage/>
           },
           {
             path:"/:id",
