@@ -15,7 +15,7 @@ function Slider({ images }) {
             if(imageIndex === images.length - 1) {
                 setImageIndex(0);
             } else {
-                setImageIndex(imageIndex + 1)
+                setImageIndex(imageIndex + 1);
             }
         }
     }

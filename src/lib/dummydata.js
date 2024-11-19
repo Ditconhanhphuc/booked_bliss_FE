@@ -35,7 +35,7 @@ export const listData = [
     {
       id: 4,
       title: "Great Price! Great Apartment!",
-      img: "https://images.pexels.com/photos/2062426/pexels-photo-2062426.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      img: "https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       bedroom: 2,
       bathroom: 1,
       price: 1000,
@@ -68,7 +68,7 @@ export const listData = [
     {
       id: 7,
       title: "Apartment 7",
-      img: "https://images.pexels.com/photos/2029667/pexels-photo-2029667.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      img: "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       bedroom: 2,
       bathroom: 1,
       price: 1000,
