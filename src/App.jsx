@@ -8,10 +8,10 @@ import {
   Link,
 } from "react-router-dom";
 import Layout from "./routes/layout/layout";
-import SinglePage from "./routes/singlePage/singlePage";
-import Profile from "./Routes/UserProfile/userProfile";
+import SinglePage from "./routes/singlePage/SinglePage";
+import Profile from "./routes/UserProfile/userProfile";
 import Chat from "./Routes/Chat/Chat"
-import CreatePost from "./Routes/CreatePost/CreatePost";
+import CreatePost from "./routes/CreatePost/CreatePost";
 import AdjustAccount from "./Routes/AdjustAccount/AdjustAccount";
 import HomePage from "./routes/homePage/homePage";
 import Register from "./routes/register/register";
@@ -31,6 +31,10 @@ function App() {
             element: <HomePage/>
           },
           {
+            path:"/homePage",
+            element: <HomePage/>
+          },
+          {
             path:"/register",
             element: <Register/>
           },
@@ -47,11 +51,11 @@ function App() {
             element:<ListPage/>
           },
           {
-            path: "/Profile",
+            path: "/profile",
             element: <Profile />,
           },
           {
-            path: "/Chat",
+            path: "/chat",
             element: <Chat />,
           },
           {

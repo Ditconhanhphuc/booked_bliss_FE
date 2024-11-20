@@ -38,7 +38,7 @@ function CreatePost() {
                 <PostForm />
             </div>
 
-            <div className="current-post-tittle">
+            {/* <div className="current-post-tittle">
                 <h1>Your Current Posts</h1>
             </div>
             <div className="current-post-container">
@@ -73,7 +73,7 @@ function CreatePost() {
                         </div>
                     </div>
                 ))}
-            </div>
+            </div> */}
         </div>
     );
 }
