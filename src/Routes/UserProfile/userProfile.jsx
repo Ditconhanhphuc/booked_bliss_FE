@@ -8,12 +8,12 @@ import apiRequest from "../../lib/apiRequest";
 function Profile() {
 
     const navigate = useNavigate();
-    const handleLogout = async ()=>{
-        try{
+    const handleLogout = async () => {
+        try {
             const res = apiRequest.post("/auth/logout");
             localStorage.removeItem("user");
-            navigate("/")
-        }catch(err){
+            navigate("/");
+        } catch (err) {
             console.log(err)
         }
     }
@@ -31,13 +31,6 @@ function Profile() {
         navigate('/Chat');
     }
 
-    const boxesData = [
-        { title: "Post 1", content: "Content for post 1" },
-        { title: "Post 2", content: "Content for post 2" },
-        { title: "Post 3", content: "Content for post 3" },
-
-    ];
-
     return (
         <div>
             <div className="profile-container">
@@ -49,7 +42,6 @@ function Profile() {
                     <img src="/profile_ava.png" alt="Profile Avatar" className="Avatar" />
                     <div className="user-info">
                         <p className="username">Simon Doe</p>
-
                         <p className="email">simon@gmail.com</p>
                     </div>
 
