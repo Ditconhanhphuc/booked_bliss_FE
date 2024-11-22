@@ -3,8 +3,15 @@ import { Link } from 'react-router-dom';
 import SearchBar from '../../components/searchBar/SearchBar';
 import Card from '../../components/card/card';
 import { listData } from '../../lib/dummydata';
+import { useContext } from 'react';
+import { AuthContext } from '../../components/context/AuthContext';
 
 function HomePage() {
+
+  const {currentUser} = useContext(AuthContext);
+
+  console.log(currentUser);
+
   const data = listData;
   return (
     <div className='homePage'>

@@ -2,11 +2,15 @@ import "./login.scss";
 import { Link, useNavigate } from "react-router-dom";
 import apiRequest from "../../lib/apiRequest";
 import { useState } from "react";
+import { useContext } from 'react';
+import { AuthContext } from '../../components/context/AuthContext';
 
 
 function Login() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  const {updateUser} = useContext(AuthContext);
 
     const navigate = useNavigate()
 
@@ -17,7 +21,7 @@ function Login() {
         const formData = new FormData(e.target);
 
         const username = formData.get("username");
-        const email = formData.get("email");
+        // const email = formData.get("email");
         const password = formData.get("password");
 
         try {
@@ -26,7 +30,7 @@ function Login() {
                 password,
             });
 
-            localStorage.setItem("user", JSON.stringify(res.data));
+            updateUser(res.data);
 
             navigate("/homePage");
         }catch(err){

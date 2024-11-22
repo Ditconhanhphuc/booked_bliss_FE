@@ -247,6 +247,7 @@ body {
     font-family: 'Roboto Serif', serif;
     font-size: 20px;
     cursor: pointer;
+    width: max-content;
     transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 
     &:hover {
@@ -296,16 +297,16 @@ body {
     z-index: 1;
 
     .Avatar {
-        width: 70px;
         height: 100%;
         border-radius: 5px;
+        margin-left: 4px;
     }
 
     .user-info {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        margin-right: 510px;
+        margin-right: 476px;
 
         .username {
             font-family: 'Roboto Serif', serif;
