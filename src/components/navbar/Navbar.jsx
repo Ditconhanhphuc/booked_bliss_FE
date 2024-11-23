@@ -1,11 +1,14 @@
 import { useState } from "react";
+import { useContext } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import "./navbar.scss"
+import { AuthContext } from "../context/AuthContext";
 
 function Navbar() {
     const [open, setOpen] = useState(false);
 
-    const user = true;
+    const {currentUser} = useContext(AuthContext);
+
     return (
         <nav>
             <div className="navbar-left">
@@ -21,10 +24,10 @@ function Navbar() {
                 <a href="/">Cooperation</a>
             </div>
             <div className="navbar-right">
-                {user ? (
+                {currentUser ? (
                     <div className="user">
-                        <img src="https://ca-times.brightspotcdn.com/dims4/default/6afee51/2147483647/strip/true/crop/3600x2405+0+0/resize/1200x802!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F13%2F95%2F22c003484d9b867fe7d0093eb0a4%2Fbridgerton-108-unit-00543r.jpg" alt="" />
-                        <span>Simon Basset</span>
+                        <img src={currentUser.avatar || "/noavatar.jpg"} alt="" />
+                        <span>{currentUser.username}</span>
                         <Link className="profile" to="/profile">
                             <div className="notification">3</div>
                             <span>Profile</span>

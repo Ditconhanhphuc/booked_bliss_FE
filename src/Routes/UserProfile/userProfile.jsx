@@ -4,14 +4,20 @@ import "./userprofile.scss";
 import { listData } from '../../lib/dummydata';
 import Card from '../../components/card/card';
 import apiRequest from "../../lib/apiRequest";
+import { useContext } from "react";
+import { AuthContext } from "../../components/context/AuthContext";
+import ProfileUpdatePage from "../profileUpdatePage/profileUpdatePage";
 
 function Profile() {
 
+    const { updateUser, currentUser } = useContext(AuthContext);
+
     const navigate = useNavigate();
+
     const handleLogout = async () => {
         try {
-            const res = apiRequest.post("/auth/logout");
-            localStorage.removeItem("user");
+            await apiRequest.post("/auth/logout");
+            updateUser(null)
             navigate("/");
         } catch (err) {
             console.log(err)
@@ -23,12 +29,12 @@ function Profile() {
         navigate('/CreatePost');
     };
 
-    const handleAjustAccount = () => {
-        navigate('/AdjustAccount');
-    };
-
     const handleChat = () => {
         navigate('/Chat');
+    }
+    
+    const handleProfileUpdate = () => {
+        navigate('/profile/update');
     }
 
     return (
@@ -39,16 +45,16 @@ function Profile() {
                 </div>
 
                 <div className="profile-box">
-                    <img src="/profile_ava.png" alt="Profile Avatar" className="Avatar" />
+                    <img src={currentUser.avatar || "noavatar.jpg"} alt="Profile Avatar" className="Avatar" />
                     <div className="user-info">
-                        <p className="username">Simon Doe</p>
-                        <p className="email">simon@gmail.com</p>
+                        <p className="username">{currentUser.username}</p>
+                        <p className="email">{currentUser.email}</p>
                     </div>
 
                     <div className="btn-side">
                         {/* edit profile btn */}
                         <div className="profile-edit-container">
-                            <button className="edit-btn" onClick={handleAjustAccount}>
+                            <button className="edit-btn" onClick={handleProfileUpdate}>
                                 Edit Profile
                             </button>
                         </div>
