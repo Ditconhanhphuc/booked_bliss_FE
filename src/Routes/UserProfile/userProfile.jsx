@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import Navbar from "../../components/navbar/Navbar";
 import { useNavigate } from 'react-router-dom';
 import "./userprofile.scss";
@@ -20,6 +21,7 @@ function Profile() {
         navigate('/Chat');
     }
 
+    // eslint-disable-next-line no-unused-vars
     const boxesData = [
         { title: "Post 1", content: "Content for post 1" },
         { title: "Post 2", content: "Content for post 2" },
