@@ -1,33 +1,52 @@
 import React, { useState } from 'react';
 import './filter.scss';
+import { useSearchParams } from "react-router-dom";
 
 function Filter() {
-    const [selectedLocations, setSelectedLocations] = useState([]);
-    const [selectedPropertyTypes, setSelectedPropertyTypes] = useState([]);
-    const [areaWidth, setAreaWidth] = useState(80);
-    const [areaLength, setAreaLength] = useState(30);
-    const [minPrice, setMinPrice] = useState(1000);
-    const [maxPrice, setMaxPrice] = useState(10000);
-    const [bedroom, setBedroom] = useState(1);
+    const [searchParams, setSearchParams] = useSearchParams();
 
-    const handleLocationChange = (location) => {
-        setSelectedLocations((prev) =>
-            prev.includes(location)
-                ? prev.filter((l) => l !== location)
-                : [...prev, location]
-        );
+    const [query, setQuery] = useState({
+        type: searchParams.get("type") || "",
+        city: searchParams.get("city") || "",
+        property: searchParams.get("property") || "",
+        minPrice: searchParams.get("minPrice") || 0,
+        maxPrice: searchParams.get("maxPrice") || 1000000,
+        bedroom: searchParams.get("bedroom") || 1,
+    });
+
+    const handleCheckboxChange = (field, value) => {
+        const values = query[field] ? query[field].split(",") : [];
+        const updatedValues = values.includes(value)
+            ? values.filter((item) => item !== value)
+            : [...values, value];
+
+        setQuery({ ...query, [field]: updatedValues.join(",") });
     };
 
-    const handlePropertyTypeChange = (type) => {
-        setSelectedPropertyTypes((prev) =>
-            prev.includes(type)
-                ? prev.filter((t) => t !== type)
-                : [...prev, type]
-        );
+    const handleSliderChange = (field, value) => {
+        setQuery({ ...query, [field]: value });
+    };
+
+    const handleFilter = () => {
+        setSearchParams(query);
     };
 
     return (
         <div className="filter-sidebar">
+            <div className="filter-section">
+                <h3>Filter By: Type</h3>
+                {['Buy', 'Rent'].map((type, index) => (
+                    <label key={index}>
+                        <input
+                            type="checkbox"
+                            checked={query.type.includes(type)}
+                            onChange={() => handleCheckboxChange('type', type)}
+                            defaultValue={query.type}
+                        />
+                        {type}
+                    </label>
+                ))}
+            </div>
             <div className="filter-section">
                 <h3>Filter By: Price</h3>
                 <div className="slider-container">
@@ -35,12 +54,13 @@ function Filter() {
                         Min:
                         <input
                             type="range"
-                            min="1000"
+                            min="1"
                             max="10000"
-                            value={minPrice}
-                            onChange={(e) => setMinPrice(e.target.value)}
+                            value={query.minPrice}
+                            onChange={(e) => handleSliderChange("minPrice", e.target.value)}
+                            defaultValue={query.minPrice}
                         />
-                        {minPrice}
+                        {query.minPrice}
                     </label>
                     <label className="slider-item">
                         Max:
@@ -48,43 +68,42 @@ function Filter() {
                             type="range"
                             min="10000"
                             max="200000"
-                            value={maxPrice}
-                            onChange={(e) => setMaxPrice(e.target.value)}
+                            value={query.maxPrice}
+                            onChange={(e) => handleSliderChange("maxPrice", e.target.value)}
+                            defaultValue={query.maxPrice}
                         />
-                        {maxPrice}
+                        {query.maxPrice}
                     </label>
                 </div>
             </div>
-            <div className="filter-section location">
+            <div className="filter-section">
                 <h3>Filter By: Location</h3>
-                {['Any', 'Ho Chi Minh', 'Ha Noi', 'Binh Dinh', 'Binh Duong', 'Hai Phong', 'Can Tho'].map((location, index) => (
+                {['Any', 'Ho Chi Minh', 'Ha Noi', 'Binh Dinh', 'Binh Duong', 'Hai Phong', 'London'].map((location, index) => (
                     <label key={index}>
                         <input
                             type="checkbox"
-                            value={location}
-                            onChange={() => handleLocationChange(location)}
-                            checked={selectedLocations.includes(location)}
+                            checked={query.city.includes(location)}
+                            onChange={() => handleCheckboxChange('city', location)}
+                            defaultValue={query.location}
                         />
                         {location}
                     </label>
                 ))}
             </div>
-
-            <div className="filter-section property">
+            <div className="filter-section">
                 <h3>Filter By: Property</h3>
-                {['Houses', 'Apartments', 'Condo', 'Land'].map((type, index) => (
+                {['House', 'Apartment', 'Condo', 'Land'].map((type, index) => (
                     <label key={index}>
                         <input
                             type="checkbox"
-                            value={type}
-                            onChange={() => handlePropertyTypeChange(type)}
-                            checked={selectedPropertyTypes.includes(type)}
+                            checked={query.property.includes(type)}
+                            onChange={() => handleCheckboxChange('property', type)}
+                            defaultValue={query.property}
                         />
                         {type}
                     </label>
                 ))}
             </div>
-
             <div className="filter-section">
                 <h3>Filter By: Bedroom</h3>
                 <div className="slider-container">
@@ -94,12 +113,16 @@ function Filter() {
                             type="range"
                             min="1"
                             max="10"
-                            value={bedroom}
-                            onChange={(e) => setBedroom(e.target.value)}
+                            value={query.bedroom}
+                            onChange={(e) => handleSliderChange("bedroom", e.target.value)}
+                            defaultValue={query.bedroom}
                         />
-                        {bedroom}
+                        {query.bedroom}
                     </label>
                 </div>
+            </div>
+            <div className="filter-btn">
+                <button className='filter-update' onClick={handleFilter}>Update</button>
             </div>
         </div>
     );

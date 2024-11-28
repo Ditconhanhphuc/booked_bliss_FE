@@ -68,22 +68,20 @@ const PostForm = () => {
                 <label>
                     Title:
                     <input
-                        type="text"
+                        id="title"
                         name="title"
-                        value={formData.title}
-                        onChange={handleChange}
+                        type="text"
                         required
                     />
                 </label>
             </div>
             <div>
                 <label>
-                    Location:
+                    Price:
                     <input
+                        id="price"
+                        name="title"
                         type="text"
-                        name="location"
-                        value={formData.location}
-                        onChange={handleChange}
                         required
                     />
                 </label>
@@ -92,10 +90,9 @@ const PostForm = () => {
                 <label>
                     Address:
                     <input
+                        id="address"
+                        name="title"
                         type="text"
-                        name="address"
-                        value={formData.address}
-                        onChange={handleChange}
                         required
                     />
                 </label>

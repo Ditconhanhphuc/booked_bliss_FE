@@ -10,11 +10,12 @@ import { Layout, RequireAuth } from "./routes/layout/layout";
 import SinglePage from "./routes/singlePage/SinglePage";
 import Profile from "./routes/UserProfile/userProfile";
 import Chat from "./Routes/Chat/Chat"
-import CreatePost from "./routes/CreatePost/CreatePost";
+import NewPostPage from "./routes/newPostPage/newPostPage";
 import HomePage from "./routes/homePage/homePage";
 import Register from "./routes/register/register";
 import Login from "./routes/login/login";
 import ProfileUpdatePage from "./routes/profileUpdatePage/profileUpdatePage"
+import { listPageLoader, singPageLoader, profilePageLoader, homePageLoader } from "./lib/loaders";
 
 
 function App() {
@@ -27,11 +28,13 @@ function App() {
       children: [
         {
           path: "/",
-          element: <HomePage />
+          element: <HomePage />,
+          loader: homePageLoader,
         },
         {
           path: "/homePage",
-          element: <HomePage />
+          element: <HomePage />,
+          loader: homePageLoader,
         },
         {
           path: "/register",
@@ -43,19 +46,17 @@ function App() {
         },
         {
           path: "/:id",
-          element: <SinglePage />
+          element: <SinglePage />,
+          loader: singPageLoader,
         },
         {
           path: "/list",
-          element: <ListPage />
+          element: <ListPage />,
+          loader: listPageLoader,
         },
         {
           path: "/chat",
           element: <Chat />,
-        },
-        {
-          path: "/CreatePost",
-          element: <CreatePost />,
         },
       ],
     },
@@ -66,10 +67,15 @@ function App() {
         {
           path: "/profile",
           element: <Profile />,
+          loader: profilePageLoader,
         },
         {
           path: "/profile/update",
           element: <ProfileUpdatePage />,
+        },
+        {
+          path: "/add",
+          element: <NewPostPage />,
         },
       ],
     },

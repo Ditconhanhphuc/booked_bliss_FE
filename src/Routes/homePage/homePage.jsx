@@ -1,18 +1,20 @@
 import './homePage.scss';
-import { Link } from 'react-router-dom';
+import { Await, Link, useLoaderData } from 'react-router-dom';
 import SearchBar from '../../components/searchBar/SearchBar';
 import Card from '../../components/card/card';
 import { listData } from '../../lib/dummydata';
-import { useContext } from 'react';
+import { Suspense, useContext } from 'react';
 import { AuthContext } from '../../components/context/AuthContext';
+import List from '../../components/list/List';
 
 function HomePage() {
 
-  const {currentUser} = useContext(AuthContext);
+  const data = useLoaderData();
+
+  const { currentUser } = useContext(AuthContext);
 
   console.log(currentUser);
 
-  const data = listData;
   return (
     <div className='homePage'>
       <div className="homeImg">
@@ -34,9 +36,16 @@ function HomePage() {
           </span>
         </div>
         <div className="homeItem">
-          {data.slice(0, 3).map(item => (
-            <Card key={item.id} item={item} />
-          ))}
+          <Suspense fallback={<p>Loading posts...</p>}>
+            <Await
+              resolve={data.postResponse}
+              errorElement={<p>Error loading posts!</p>}
+            >
+              {(postResponse) =>
+                <List posts={postResponse.data.slice(0, 3)} />
+              }
+            </Await>
+          </Suspense>
         </div>
       </div>
       <div className="whatWeDo">

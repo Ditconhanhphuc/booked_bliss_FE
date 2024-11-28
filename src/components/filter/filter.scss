@@ -54,4 +54,23 @@
             padding-left: 4px;
         }
     }
+
+    .bedroom {
+        border-bottom: none;
+    }
+
+    .filter-btn {
+        padding: 20px 0px 20px 60px;
+        .filter-update{
+            padding: 12px 20px;
+            border: none;
+            background-color: #2a2a68;
+            color: #fff;
+            cursor: pointer;
+            font-size: 12px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease-in-out;
+            // margin-bottom: 10px;
+        }
+    }
 }
