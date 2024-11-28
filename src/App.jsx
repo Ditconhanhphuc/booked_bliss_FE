@@ -16,7 +16,8 @@ import Register from "./routes/register/register";
 import Login from "./routes/login/login";
 import ProfileUpdatePage from "./routes/profileUpdatePage/profileUpdatePage"
 import { listPageLoader, singPageLoader, profilePageLoader, homePageLoader } from "./lib/loaders";
-
+import ContactUs from "./Routes/LeftoverPage/ContactUs";
+import TypeofHouses from "./Routes/LeftoverPage/TypeOfHouses";
 
 function App() {
 
@@ -58,6 +59,14 @@ function App() {
           path: "/chat",
           element: <Chat />,
         },
+        {
+          path: "/contactus",
+          element: <ContactUs />,
+        },
+        {
+          path: "/houses",
+          element: <TypeofHouses />,
+        },
       ],
     },
     {
@@ -81,10 +90,13 @@ function App() {
     },
   ]);
 
+
   return (
     <RouterProvider router={router} />
   )
 }
 
 export default App;
+
+
 

@@ -4,6 +4,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import { useEffect } from 'react';
 import { useContext } from "react";
 import { AuthContext } from '../../components/context/AuthContext';
+import Footer from '../../components/footer/Footer';
 
 function Layout() {
     return (
@@ -14,6 +15,9 @@ function Layout() {
                 </div>
                 <div className="content">
                     <Outlet />
+                </div>
+                <div className="footer">
+                    <Footer/>
                 </div>
             </div>
         </div>
@@ -34,6 +38,9 @@ function RequireAuth() {
                 </div>
                 <div className="content">
                     <Outlet />
+                </div>
+                <div className="footer">
+                    <Footer/>
                 </div>
             </div>
         </div>
