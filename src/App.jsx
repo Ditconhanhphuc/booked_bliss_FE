@@ -8,14 +8,15 @@ import {
 } from "react-router-dom";
 import { Layout, RequireAuth } from "./routes/layout/layout";
 import SinglePage from "./routes/singlePage/SinglePage";
-import Profile from "./routes/UserProfile/userProfile";
+import Profile from "./Routes/UserProfile/userProfile";
 import Chat from "./Routes/Chat/Chat"
 import CreatePost from "./routes/CreatePost/CreatePost";
 import HomePage from "./routes/homePage/homePage";
 import Register from "./routes/register/register";
 import Login from "./routes/login/login";
 import ProfileUpdatePage from "./routes/profileUpdatePage/profileUpdatePage"
-
+import ContactUs from "./Routes/LeftoverPage/ContactUs";
+import TypeofHouses from "./Routes/LeftoverPage/TypeOfHouses";
 
 function App() {
 
@@ -56,6 +57,14 @@ function App() {
         {
           path: "/CreatePost",
           element: <CreatePost />,
+        },
+        {
+          path: "/contactus",
+          element: <ContactUs />,
+        },
+        {
+          path: "/houses",
+          element: <TypeofHouses />,
         },
       ],
     },

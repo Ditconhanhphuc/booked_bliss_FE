@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useContext } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { Link, useNavigate } from "react-router-dom";
 import "./navbar.scss"
 import { AuthContext } from "../context/AuthContext";
@@ -19,8 +20,8 @@ function Navbar() {
             </div>
             <div className="navbar-center">
                 <a href="/">Agents</a>
-                <a href="/">Type of House</a>
-                <a href="/">Contact Us</a>
+                <a href="/houses">Type of House</a>
+                <a href="/contactus">Contact Us</a>
                 <a href="/">Cooperation</a>
             </div>
             <div className="navbar-right">
@@ -46,8 +47,8 @@ function Navbar() {
                 </div>
                 <div className={open ? "menu active" : "menu"}>
                     <a href="/">Agents</a>
-                    <a href="/">Type of House</a>
-                    <a href="/">Contact Us</a>
+                    <a href="/houses">Type of House</a>
+                    <a href="/contactus">Contact Us</a>
                     <a href="/">Cooperation</a>
                     <a href="/">Sign In</a>
                     <a href="/">Sign Up</a>
