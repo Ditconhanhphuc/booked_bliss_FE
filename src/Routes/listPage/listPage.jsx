@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { Suspense } from 'react';
 import { Await, useLoaderData } from 'react-router-dom';
 import SearchBar from '../../components/searchBar/SearchBar';
