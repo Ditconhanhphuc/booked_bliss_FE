@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './map.scss';

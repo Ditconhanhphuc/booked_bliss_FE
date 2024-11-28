@@ -1,4 +1,3 @@
-import Navbar from "../../components/navbar/Navbar";
 import { useNavigate, Link, useLoaderData, Await } from 'react-router-dom';
 import "./userprofile.scss";
 import apiRequest from "../../lib/apiRequest";
