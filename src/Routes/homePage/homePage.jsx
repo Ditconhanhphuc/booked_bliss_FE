@@ -55,6 +55,7 @@ function HomePage() {
           </span>
         </div>
       </div>
+      
       <div className="peopleSay">
         <h3>What People Say About Us?</h3>
         <div className="peopleItems">
