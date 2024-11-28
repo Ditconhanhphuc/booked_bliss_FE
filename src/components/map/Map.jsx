@@ -1,8 +1,10 @@
+// eslint-disable-next-line no-unused-vars
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './map.scss';
 import Pin from '../pin/Pin';
 
+// eslint-disable-next-line react/prop-types
 function Map({items}) {
     return ( 
         <MapContainer center={[51.505, -0.09]} zoom={7} scrollWheelZoom={false} className='map'>

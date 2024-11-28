@@ -45,6 +45,7 @@ function Footer() {
           <h2>Follow up with the latest news</h2>
           <input type="text" value="abc@gmail.com"/>
         </div>
+        
         </div>
       </div>
     </div>

@@ -3,7 +3,9 @@ import { createRoot } from "react-dom/client";
 import {
   createBrowserRouter,
   RouterProvider,
+  // eslint-disable-next-line no-unused-vars
   Route,
+  // eslint-disable-next-line no-unused-vars
   Link,
 } from "react-router-dom";
 import { Layout, RequireAuth } from "./routes/layout/layout";
@@ -11,10 +13,10 @@ import SinglePage from "./routes/singlePage/SinglePage";
 import Profile from "./Routes/UserProfile/userProfile";
 import Chat from "./Routes/Chat/Chat"
 import CreatePost from "./routes/CreatePost/CreatePost";
-import HomePage from "./routes/homePage/homePage";
+import HomePage from "./Routes/homePage/homePage";
 import Register from "./routes/register/register";
 import Login from "./routes/login/login";
-import ProfileUpdatePage from "./routes/profileUpdatePage/profileUpdatePage"
+import ProfileUpdatePage from "./Routes/profileUpdatePage/profileUpdatePage"
 import ContactUs from "./Routes/LeftoverPage/ContactUs";
 import TypeofHouses from "./Routes/LeftoverPage/TypeOfHouses";
 

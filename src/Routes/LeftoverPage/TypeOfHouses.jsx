@@ -1,6 +1,5 @@
 import {useNavigate} from "react-router-dom"
 import './type.scss'
-import Footer from "../../components/footer/Footer";
 
 function TypeofHouses() {
     const navigate = useNavigate();
