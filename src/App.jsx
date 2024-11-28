@@ -3,20 +3,19 @@ import { createRoot } from "react-dom/client";
 import {
   createBrowserRouter,
   RouterProvider,
-  // eslint-disable-next-line no-unused-vars
   Route,
-  // eslint-disable-next-line no-unused-vars
   Link,
 } from "react-router-dom";
 import { Layout, RequireAuth } from "./routes/layout/layout";
 import SinglePage from "./routes/singlePage/SinglePage";
-import Profile from "./Routes/UserProfile/userProfile";
+import Profile from "./routes/UserProfile/userProfile";
 import Chat from "./Routes/Chat/Chat"
-import CreatePost from "./routes/CreatePost/CreatePost";
-import HomePage from "./Routes/homePage/homePage";
+import NewPostPage from "./routes/newPostPage/newPostPage";
+import HomePage from "./routes/homePage/homePage";
 import Register from "./routes/register/register";
 import Login from "./routes/login/login";
-import ProfileUpdatePage from "./Routes/profileUpdatePage/profileUpdatePage"
+import ProfileUpdatePage from "./routes/profileUpdatePage/profileUpdatePage"
+import { listPageLoader, singPageLoader, profilePageLoader, homePageLoader } from "./lib/loaders";
 import ContactUs from "./Routes/LeftoverPage/ContactUs";
 import TypeofHouses from "./Routes/LeftoverPage/TypeOfHouses";
 
@@ -30,11 +29,13 @@ function App() {
       children: [
         {
           path: "/",
-          element: <HomePage />
+          element: <HomePage />,
+          loader: homePageLoader,
         },
         {
           path: "/homePage",
-          element: <HomePage />
+          element: <HomePage />,
+          loader: homePageLoader,
         },
         {
           path: "/register",
@@ -46,19 +47,17 @@ function App() {
         },
         {
           path: "/:id",
-          element: <SinglePage />
+          element: <SinglePage />,
+          loader: singPageLoader,
         },
         {
           path: "/list",
-          element: <ListPage />
+          element: <ListPage />,
+          loader: listPageLoader,
         },
         {
           path: "/chat",
           element: <Chat />,
-        },
-        {
-          path: "/CreatePost",
-          element: <CreatePost />,
         },
         {
           path: "/contactus",
@@ -77,14 +76,20 @@ function App() {
         {
           path: "/profile",
           element: <Profile />,
+          loader: profilePageLoader,
         },
         {
           path: "/profile/update",
           element: <ProfileUpdatePage />,
         },
+        {
+          path: "/add",
+          element: <NewPostPage />,
+        },
       ],
     },
   ]);
+
 
   return (
     <RouterProvider router={router} />
@@ -92,4 +97,6 @@ function App() {
 }
 
 export default App;
+
+
 

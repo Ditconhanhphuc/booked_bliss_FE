@@ -1,36 +1,57 @@
-import SearchBar from '../../components/searchBar/SearchBar'
-import './listPage.scss';
+import React, { Suspense } from 'react';
+import { Await, useLoaderData } from 'react-router-dom';
+import SearchBar from '../../components/searchBar/SearchBar';
 import Filter from '../../components/filter/filter';
 import Map from '../../components/map/Map';
 import Card from '../../components/card/card';
-import { listData } from '../../lib/dummydata';
+import './listPage.scss';
 
 function ListPage() {
-    const data = listData;
+    const data = useLoaderData();
+
     return (
         <div className="listPage">
+            {/* Header Section */}
             <div className="head">
                 <div className="headImg">
-                    <img src="/headImg.png" alt="" />
+                    <img src="/headImg.png" alt="Header" />
                 </div>
                 <SearchBar />
             </div>
+
+            {/* Main Content */}
             <div className="listContent">
+                {/* Map and Filter */}
                 <div className="mapContainer">
-                    <Map items = {data}/>
+                    <Suspense fallback={<p>Loading map...</p>}>
+                        <Await
+                            resolve={data.postResponse}
+                            errorElement={<p>Error loading map!</p>}
+                        >
+                            {(postResponse) => <Map items={postResponse.data} />}
+                        </Await>
+                    </Suspense>
                     <Filter />
-                    {/* <div className="wrapper">
-                    </div> */}
                 </div>
+
+                {/* List of Posts */}
                 <div className="listContainer">
-                    {data.map(item  => (
-                        <Card key = {item.id} item={item}/>
-                    ))}
+                    <Suspense fallback={<p>Loading posts...</p>}>
+                        <Await
+                            resolve={data.postResponse}
+                            errorElement={<p>Error loading posts!</p>}
+                        >
+                            {(postResponse) =>
+                                postResponse.data.map((post) => (
+                                    <Card key={post.id} item={post} />
+                                ))
+                            }
+                        </Await>
+                    </Suspense>
                 </div>
             </div>
         </div>
-
-    )
+    );
 }
 
-export default ListPage
+export default ListPage;

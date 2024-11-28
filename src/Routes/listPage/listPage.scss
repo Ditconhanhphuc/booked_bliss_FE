@@ -73,16 +73,18 @@
         .listContainer {
             flex: 4;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, auto);
-            gap: 20px;
+            grid-template-columns: repeat(3, 1fr); 
+            grid-template-rows: repeat(auto-fill, 450px);
+            grid-auto-flow: dense;
+            gap: 10px; 
+            row-gap: 10px; 
             margin-left: 18px;
             margin-top: 20px;
             justify-items: center;
             align-items: center;
-            // overflow: hidden;
-            overflow-y: scroll;
-            height: 130vh;
-        }
+            overflow-y: scroll; 
+            scrollbar-width: none;
+            height: 168vh; 
+        }        
     }
 }

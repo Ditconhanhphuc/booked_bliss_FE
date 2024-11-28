@@ -1,14 +1,12 @@
-// eslint-disable-next-line no-unused-vars
-import Navbar from "../../components/navbar/Navbar";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link, useLoaderData, Await } from 'react-router-dom';
 import "./userprofile.scss";
-import { listData } from '../../lib/dummydata';
-import Card from '../../components/card/card';
 import apiRequest from "../../lib/apiRequest";
-import { useContext } from "react";
+import { Suspense, useContext } from "react";
 import { AuthContext } from "../../components/context/AuthContext";
+import List from "../../components/list/List";
 
 function Profile() {
+    const data = useLoaderData();
 
     const { updateUser, currentUser } = useContext(AuthContext);
 
@@ -23,24 +21,12 @@ function Profile() {
             console.log(err)
         }
     }
-    const data = listData;
-
-    const handleCreatePost = () => {
-        navigate('/CreatePost');
-    };
+    // const data = listData;
 
     const handleChat = () => {
         navigate('/Chat');
     }
 
-    // eslint-disable-next-line no-unused-vars
-    const boxesData = [
-        { title: "Post 1", content: "Content for post 1" },
-        { title: "Post 2", content: "Content for post 2" },
-        { title: "Post 3", content: "Content for post 3" },
-
-    ];
-    
     const handleProfileUpdate = () => {
         navigate('/profile/update');
     }
@@ -87,32 +73,53 @@ function Profile() {
                 </div>
                 {/* create new post btn*/}
                 <div className="create-post-container">
-                    <button className="create-post-button" onClick={handleCreatePost}>
-                        <span className="icon-container">
-                            <img src="/plus.png" alt="plus" className="icon" />
-                        </span>
-                        Create New Post
-                    </button>
+                    <Link to={`/add`}>
+                        <button className="create-post-button">
+                            <span className="icon-container">
+                                <img src="/plus.png" alt="plus" className="icon" />
+                            </span>
+                            Create New Post
+                        </button>
+                    </Link>
                 </div>
             </div>
 
-            {/* current post section */}
+            <Suspense fallback={<p>Loading posts...</p>}>
+                <Await
+                    resolve={data.postResponse}
+                    errorElement={<p>Error loading posts!</p>}
+                >
+                    {(postResponse) =>
+                        // {data.map(item => (
+                        //     <Card key={item.id} item={item} />
+                        // ))}
+                        <List posts={postResponse.data.userPosts} />
+                    }
+                </Await>
+            </Suspense>
 
-            <div className="cardContainter">
-                {data.map(item => (
-                    <Card key={item.id} item={item} />
-                ))}
-            </div>
+            {/* current post section */}
             {/* your saved post section */}
 
             <div className="saved-post-tittle">
                 <h1>Your Saved List</h1>
             </div>
-            <div className="cardContainter">
-                {data.map(item => (
+            {/* {data.map(item => (
                     <Card key={item.id} item={item} />
-                ))}
-            </div>
+                ))} */}
+            <Suspense fallback={<p>Loading posts...</p>}>
+                <Await
+                    resolve={data.postResponse}
+                    errorElement={<p>Error loading posts!</p>}
+                >
+                    {(postResponse) =>
+                        // {data.map(item => (
+                        //     <Card key={item.id} item={item} />
+                        // ))}
+                        <List posts={postResponse.data.savedPosts} />
+                    }
+                </Await>
+            </Suspense>
         </div>
     );
 }
