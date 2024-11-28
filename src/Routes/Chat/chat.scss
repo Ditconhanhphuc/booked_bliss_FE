@@ -2,10 +2,27 @@ body {
     font-family: 'Roboto Serif', sans-serif;
 }
 
+.chat-content {
+    display: flex;
+    flex-direction: column;
+
+    .return-btn{
+        .return-caret-button{
+            border: none;
+            margin: 20px;
+            .icon-container1{
+                img{
+                    width: 20px;
+                }
+            }
+        }
+    }
+}
+
 .chat-container {
     display: flex;
     width: 100%;
-    margin-top: 100px;
+    margin-top: 10px;
     height: 500px;
     border-radius: 10px;
     border: 1px solid #ddd;

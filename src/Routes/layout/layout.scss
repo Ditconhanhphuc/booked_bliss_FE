@@ -1,7 +1,7 @@
 @use "../../responsive" as *;
 
 .layout {
-    height: 100vh;
+    min-height: 100vh;
     // max-width: 1366px;
     // margin-left: auto;
     // margin-right: auto;
@@ -24,7 +24,11 @@
 
     .content {
         margin-top: 72px;
-        // flex: 1;
+        flex: 1;
         height: calc(100vh - 72px);
+    }
+
+    .footer {
+        margin-top: auto;
     }
 }
