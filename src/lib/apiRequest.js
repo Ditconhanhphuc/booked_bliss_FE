@@ -2,7 +2,7 @@ import axios from "axios";
 
 const apiRequest = axios.create({
     baseURL: "http://localhost:8800/api", // URL của backend API
-    withCredentials: true, // Đảm bảo cookie được gửi kèm theo request
+    withCredentials: true, 
 });
 
 // Interceptor for Requests
