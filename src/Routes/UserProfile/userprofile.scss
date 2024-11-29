@@ -296,17 +296,29 @@ body {
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
     z-index: 1;
 
-    .Avatar {
-        height: 100%;
-        border-radius: 5px;
-        margin-left: 4px;
+    .profile-box-info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        .profile-box-avt{
+    
+            img {
+                height: 110px; /* Đặt chiều cao bằng 100% của profile-box */
+                width: auto; /* Đảm bảo giữ nguyên tỉ lệ hình ảnh */
+                border-radius: 5px;
+                margin-left: 4px;
+                object-fit: cover;
+            }
+        }
+        
     }
-
     .user-info {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        margin-right: 476px;
+        // margin-right: 476px;
+
 
         .username {
             font-family: 'Roboto Serif', serif;

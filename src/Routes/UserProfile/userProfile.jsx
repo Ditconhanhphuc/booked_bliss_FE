@@ -39,10 +39,14 @@ function Profile() {
                 </div>
 
                 <div className="profile-box">
-                    <img src={currentUser.avatar || "noavatar.jpg"} alt="Profile Avatar" className="Avatar" />
-                    <div className="user-info">
-                        <p className="username">{currentUser.username}</p>
-                        <p className="email">{currentUser.email}</p>
+                    <div className="profile-box-info">
+                        <div className="profile-box-avt">
+                            <img src={currentUser.avatar || "noavatar.jpg"} alt="Profile Avatar" className="Avatar" />
+                        </div>
+                        <div className="user-info">
+                            <p className="username">{currentUser.username}</p>
+                            <p className="email">{currentUser.email}</p>
+                        </div>
                     </div>
 
                     <div className="btn-side">
