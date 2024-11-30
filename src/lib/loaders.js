@@ -23,6 +23,13 @@ export const profilePageLoader = async () => {
   });
 };
 
+export const chatPageLoader = async () => {
+  const chatPromise = apiRequest("/chats");
+  return defer({
+    chatResponse: chatPromise,
+  });
+};
+
 export const homePageLoader = async () => {
   const postPromise = apiRequest("/posts");
   return defer({

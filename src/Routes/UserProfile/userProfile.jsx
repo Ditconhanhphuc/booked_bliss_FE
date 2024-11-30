@@ -23,14 +23,6 @@ function Profile() {
     }
     // const data = listData;
 
-    const handleChat = () => {
-        navigate('/Chat');
-    }
-
-    const handleProfileUpdate = () => {
-        navigate('/profile/update');
-    }
-
     return (
         <div>
             <div className="profile-container">
@@ -51,19 +43,23 @@ function Profile() {
 
                     <div className="btn-side">
                         {/* edit profile btn */}
-                        <div className="profile-edit-container">
-                            <button className="edit-btn" onClick={handleProfileUpdate}>
-                                Edit Profile
-                            </button>
-                        </div>
+                        <Link to={`/profile/update`}>
+                            <div className="profile-edit-container">
+                                <button className="edit-btn">
+                                    Edit Profile
+                                </button>
+                            </div>
+                        </Link>
 
                         {/* send message btn */}
                         <div className="send-msg-container">
-                            <button className="send-msg-button" onClick={handleChat}>
-                                <span className="icon-container">
-                                    <img src="/sendmsg.png" alt="sent" className="icon2" />
-                                </span>
-                            </button>
+                            <Link to={`/chat`}>
+                                <button className="send-msg-button">
+                                    <span className="icon-container">
+                                        <img src="/sendmsg.png" alt="sent" className="icon2" />
+                                    </span>
+                                </button>
+                            </Link>
                         </div>
                         <button className="logout-btn" onClick={handleLogout}>Logout</button>
                     </div>
