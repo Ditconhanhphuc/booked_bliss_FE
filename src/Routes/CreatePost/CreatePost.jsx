@@ -11,6 +11,7 @@ function CreatePost() {
         navigate('/Profile'); // Navigate back to the Profile page
     };
 
+    // eslint-disable-next-line no-unused-vars
     const boxesData = [
         { title: "Post 1", content: "Content for post 1" },
         { title: "Post 2", content: "Content for post 2" },

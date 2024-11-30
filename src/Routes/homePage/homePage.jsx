@@ -1,8 +1,8 @@
 import './homePage.scss';
 import { Await, Link, useLoaderData } from 'react-router-dom';
 import SearchBar from '../../components/searchBar/SearchBar';
-import Card from '../../components/card/card';
-import { listData } from '../../lib/dummydata';
+// import Card from '../../components/card/card';
+// import { listData } from '../../lib/dummydata';
 import { Suspense, useContext } from 'react';
 import { AuthContext } from '../../components/context/AuthContext';
 import List from '../../components/list/List';

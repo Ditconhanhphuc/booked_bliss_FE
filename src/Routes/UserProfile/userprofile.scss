@@ -10,6 +10,10 @@ body {
     justify-content: space-between;
     align-items: center;
 
+    @include responsive.md{
+        margin-top: 90px;
+    }
+
     @include responsive.sm {
         display: flex;
         justify-content: space-between;
@@ -167,6 +171,12 @@ body {
 .profile-container {
     position: relative;
     width: 100%;
+
+    @include responsive.sm {
+        display: flex;
+        flex-direction: column;
+
+    }
 }
 
 .cover {
@@ -200,9 +210,13 @@ body {
     gap: 10px;
     margin-right: 30px;
 
+
     @include responsive.sm {
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
+        gap: 10px;
+        width: 100%;
     }
 }
 
@@ -237,7 +251,7 @@ body {
 }
 
 .edit-btn,
-.logout-btn{
+.logout-btn {
     display: flex;
     background-color: white;
     border-radius: 10px;
@@ -261,15 +275,15 @@ body {
         background-color: #e0e0e0;
     }
 
-    @include responsive.sm {
-        width: 100px;
-        height: 75px;
-        margin-top: 15px;
-        align-items: center;
-        justify-content: center;
-        font-size: 15px;
+    // @include responsive.sm {
+    //     width: 100px;
+    //     height: 75px;
+    //     margin-top: 15px;
+    //     align-items: center;
+    //     justify-content: center;
+    //     font-size: 15px;
 
-    }
+    // }
 
     @include responsive.md {
         width: 100px;
@@ -301,18 +315,22 @@ body {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        .profile-box-avt{
-    
+
+        .profile-box-avt {
+
             img {
-                height: 110px; /* Đặt chiều cao bằng 100% của profile-box */
-                width: auto; /* Đảm bảo giữ nguyên tỉ lệ hình ảnh */
+                height: 110px;
+                /* Đặt chiều cao bằng 100% của profile-box */
+                width: auto;
+                /* Đảm bảo giữ nguyên tỉ lệ hình ảnh */
                 border-radius: 5px;
                 margin-left: 4px;
                 object-fit: cover;
             }
         }
-        
+
     }
+
     .user-info {
         display: flex;
         flex-direction: column;
@@ -383,19 +401,18 @@ body {
     }
 
     @include responsive.md {
-        margin-top: 70px;
-        margin-left: 30px;
-        margin-right: 30px;
+        margin-left: 10px;
+
+        .btn-side {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 220px;
+            margin-left: -350px;
+        }
+
     }
 }
-
-// .cardContainter {
-//     display: grid;
-//     grid-template-columns: repeat(3, 1fr);
-//     grid-template-rows: repeat(2, auto);
-//     gap: 80px;
-//     margin: 20px 80px;
-// }
 
 .current-post-tittle,
 .saved-post-tittle,
@@ -429,6 +446,10 @@ body {
     align-items: center;
     /* Center items vertically */
     overflow: hidden;
+
+    @include responsive.md{
+        margin-top: 300px;
+    }
 }
 
 .post-box {
@@ -519,9 +540,7 @@ body {
         height: auto;
     }
 
-    @include responsive.md {
-        /* Add specific styles if needed for medium screens */
-    }
+    @include responsive.md {}
 
     @include responsive.sm {
         width: 120px;
@@ -533,6 +552,8 @@ body {
         }
     }
 }
+
+.btn-side {}
 
 
 .create-new-post {

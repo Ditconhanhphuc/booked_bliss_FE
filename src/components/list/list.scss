@@ -1,7 +1,14 @@
+@use "../../responsive.scss" as responsive;
+
 .list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, auto);
     gap: 80px;
     margin: 20px 80px;
+
+    @include responsive.sm{
+        display: flex;
+    }
 }
+
