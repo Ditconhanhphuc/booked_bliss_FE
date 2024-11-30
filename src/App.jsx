@@ -9,18 +9,18 @@ import {
 import { Layout, RequireAuth } from "./routes/layout/layout";
 import SinglePage from "./routes/singlePage/SinglePage";
 import Profile from "./routes/UserProfile/userProfile";
-import Chat from "./Routes/Chat/Chat"
 import NewPostPage from "./routes/newPostPage/newPostPage";
 import HomePage from "./Routes/homePage/homePage";
 import Register from "./routes/register/register";
 import Login from "./routes/login/login";
 import ProfileUpdatePage from "./routes/profileUpdatePage/profileUpdatePage"
-import { listPageLoader, singPageLoader, profilePageLoader, homePageLoader } from "./lib/loaders";
+import { listPageLoader, singPageLoader, profilePageLoader, homePageLoader, chatPageLoader } from "./lib/loaders";
 import ContactUs from "./Routes/LeftoverPage/ContactUs";
 import TypeofHouses from "./Routes/LeftoverPage/TypeOfHouses";
 import FAQPage from "./Routes/FAQPage/FAQPAge";
 import Cooperation from "./Routes/LeftoverPage/Cooperation";
 import Agents from "./Routes/LeftoverPage/Agents";
+import ChatPage from "./routes/Chat/Chat";
 
 function App() {
 
@@ -57,10 +57,6 @@ function App() {
           path: "/list",
           element: <ListPage />,
           loader: listPageLoader,
-        },
-        {
-          path: "/chat",
-          element: <Chat />,
         },
         {
           path: "/contactus",
@@ -100,6 +96,11 @@ function App() {
         {
           path: "/add",
           element: <NewPostPage />,
+        },
+        {
+          path: "/chat",
+          element: <ChatPage />,
+          loader: chatPageLoader,
         },
       ],
     },

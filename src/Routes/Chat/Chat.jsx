@@ -1,36 +1,22 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Suspense, useState } from "react";
+import { Await, useLoaderData, useNavigate } from 'react-router-dom';
 import "./chat.scss";
-import Avatar from "../../components/avatar/Avatar";
-
-function ChatSite() {
-    const [message, setMessage] = useState("");
-    const [messages, setMessages] = useState([
-        { text: "hule", type: "received" },
-        { text: "chaoem", type: "sent" },
-    ]);
-    const [showHistory, setShowHistory] = useState(false); // New state to toggle view
-    const [searchTerm, setSearchTerm] = useState("");
-    const navigate = useNavigate();
-
-    const handleReturn = () => {
-        navigate("/Profile");
-    };
-
-    const handleSendMessage = () => {
-        if (message.trim()) {
-            setMessages([...messages, { text: message, type: "sent" }]);
-            setMessage("");
-        }
-    };
-
-    const toggleHistory = () => {
-        setShowHistory(!showHistory);
-    };
-
+import Chat from "../../components/chat/chat";
+// import BackSiteButton from "../../components/backsite/backsite";
+function ChatPage() {
+    const data = useLoaderData();
     return (
-        <div className="chat-content">
-            <div className="return-btn" onClick={handleReturn}>
+        <div className="chatContainer">
+                <Suspense fallback={<p>Loading...</p>}>
+                    <Await
+                        resolve={data.chatResponse}
+                        errorElement={<p>Error loading chats!</p>}
+                    >
+                        {(chatResponse) => <Chat chats={chatResponse.data} />}
+                    </Await>
+                </Suspense>
+        </div>
+            /* <div className="return-btn" onClick={handleReturn}>
                 <button className="return-caret-button" aria-label="Return to Profile">
                     <div className="icon-container1">
                         <img src="/caret_left.png" alt="caret-l" className="icon1" />
@@ -89,9 +75,8 @@ function ChatSite() {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> */
     );
 }
 
-export default ChatSite;
+export default ChatPage;
