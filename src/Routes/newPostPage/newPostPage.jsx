@@ -45,7 +45,7 @@ function NewPostPage() {
                 },
 
             });
-            navigate("/"+res.data.id)
+            navigate("/" + res.data.id)
 
         } catch (err) {
             console.log(err);
@@ -58,6 +58,7 @@ function NewPostPage() {
                 <h1>Add new post</h1>
                 <div className="wrapper">
                     <form onSubmit={handleSubmit}>
+                        {/* above */}
                         <div className="item">
                             <label htmlFor="title">Title</label>
                             <input id="title" name="title" type="text" />
@@ -70,10 +71,13 @@ function NewPostPage() {
                             <label htmlFor="address">Address</label>
                             <input id="address" name="address" type="text" />
                         </div>
+                        {/* description */}
                         <div className="item description">
                             <label htmlFor="desc">Description</label>
                             <ReactQuill theme="snow" onChange={setValue} value={value} />
                         </div>
+                        {/* below */}
+  
                         <div className="item">
                             <label htmlFor="city">City</label>
                             <input id="city" name="city" type="text" />
@@ -152,9 +156,12 @@ function NewPostPage() {
                             <label htmlFor="restaurant">Restaurant</label>
                             <input min={0} id="restaurant" name="restaurant" type="number" />
                         </div>
-                        <button className="sendButton">Update</button>
+      
+
+                        <button className="sendButton">Upload</button>
                         {error && <span>error</span>}
                     </form>
+
                 </div>
             </div>
             <div className="sideContainer">

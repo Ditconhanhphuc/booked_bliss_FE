@@ -36,7 +36,7 @@ function Footer() {
 
       <div className="right">
         <div className="menu">
-          <a href="/FAQ">Frequently Ask & Question</a>
+          <a href="/faq">Frequently Ask & Question</a>
           <a href="/contactus">Contact Us</a>
           <a href="/houses">Type of Houses</a>
           <a href="#">Testimonial</a>

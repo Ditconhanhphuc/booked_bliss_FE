@@ -19,10 +19,10 @@ function Navbar() {
                 </a>
             </div>
             <div className="navbar-center">
-                <a href="/">Agents</a>
+                <a href="/agents">Agents</a>
                 <a href="/houses">Type of House</a>
                 <a href="/contactus">Contact Us</a>
-                <a href="/">Cooperation</a>
+                <a href="/coop">Cooperation</a>
             </div>
             <div className="navbar-right">
                 {currentUser ? (

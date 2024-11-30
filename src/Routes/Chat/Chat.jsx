@@ -1,38 +1,32 @@
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import "./chat.scss";
 import Avatar from "../../components/avatar/Avatar";
-// import BackSiteButton from "../../components/backsite/backsite";
-
-
 
 function ChatSite() {
-
     const [message, setMessage] = useState("");
     const [messages, setMessages] = useState([
         { text: "hule", type: "received" },
         { text: "chaoem", type: "sent" },
     ]);
-
+    const [showHistory, setShowHistory] = useState(false); // New state to toggle view
+    const [searchTerm, setSearchTerm] = useState("");
     const navigate = useNavigate();
 
     const handleReturn = () => {
-        navigate('/Profile');
+        navigate("/Profile");
     };
-
-
-    const [searchTerm, setSearchTerm] = useState("");
 
     const handleSendMessage = () => {
         if (message.trim()) {
-            setMessages([
-                ...messages,
-                { text: message, type: "sent" },
-            ]);
+            setMessages([...messages, { text: message, type: "sent" }]);
             setMessage("");
         }
     };
 
+    const toggleHistory = () => {
+        setShowHistory(!showHistory);
+    };
 
     return (
         <div className="chat-content">
@@ -44,7 +38,7 @@ function ChatSite() {
                 </button>
             </div>
 
-            <div className="chat-container">
+            <div className={`chat-container ${showHistory ? "show-history" : ""}`}>
                 <div className="chat-history">
                     <div className="search-bar">
                         <input
@@ -54,48 +48,21 @@ function ChatSite() {
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
                     </div>
-                    <div className="recent-user-1">
-                        <Avatar src="/user-avatar.png" alt="UserAvatar" size={40} />
-                        <span>User Name</span>
-                        <p>abcxynuznujkn</p>
-                    </div>
-
-                    <div className="recent-user-2">
-                        <Avatar src="/user-avatar.png" alt="UserAvatar" size={40} />
-                        <span>User Name</span>
-                        <p>abcxynuznujkn</p>
-                    </div>
-
-                    <div className="recent-user-3">
-                        <Avatar src="/user-avatar.png" alt="UserAvatar" size={40} />
-                        <span>User Name</span>
-                        <p>abcxynuznujkn</p>
-                    </div>
-
-                    <div className="recent-user-4">
-                        <Avatar src="/user-avatar.png" alt="UserAvatar" size={40} />
-                        <span>User Name</span>
-                        <p>abcxynuznujkn</p>
-                    </div>
-
-                    <div className="recent-user-5">
-                        <Avatar src="/user-avatar.png" alt="UserAvatar" size={40} />
-                        <span>User Name</span>
-                        <p>abcxynuznujkn</p>
-                    </div>
-
-                    <div className="recent-user-6">
-                        <Avatar src="/user-avatar.png" alt="UserAvatar" size={40} />
-                        <span>User Name</span>
-                        <p>abcxynuznujkn</p>
-                    </div>
-
-
+                    {[...Array(6)].map((_, i) => (
+                        <div
+                            key={i}
+                            className={`recent-user-${i + 1}`}
+                            onClick={toggleHistory} // Show message-pop when clicked
+                        >
+                            <Avatar src="/user-avatar.png" alt="UserAvatar" size={40} />
+                            <span>User Name</span>
+                            <p>abcxynuznujkn</p>
+                        </div>
+                    ))}
                 </div>
 
                 <div className="message-pop">
-
-                    <div className="message-history-title">
+                    <div className="message-history-title" onClick={toggleHistory}>
                         <Avatar src="/user-avatar.png" alt="UserAvatar" size={50} />
                         <span>User Name</span>
                     </div>
@@ -121,7 +88,6 @@ function ChatSite() {
                             <button onClick={handleSendMessage}>Send</button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

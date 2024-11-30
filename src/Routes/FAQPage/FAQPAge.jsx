@@ -62,7 +62,6 @@ function FAQPage() {
 </div>
 
 
-
     );
 
 }
