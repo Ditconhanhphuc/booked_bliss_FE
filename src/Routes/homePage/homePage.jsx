@@ -3,11 +3,37 @@ import { Await, Link, useLoaderData } from 'react-router-dom';
 import SearchBar from '../../components/searchBar/SearchBar';
 // import Card from '../../components/card/card';
 // import { listData } from '../../lib/dummydata';
-import { Suspense, useContext } from 'react';
+import { Suspense, useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../components/context/AuthContext';
 import List from '../../components/list/List';
 
 function HomePage() {
+
+  const [visiblePosts, setVisiblePosts] = useState(3); // Default to 3 posts
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.matchMedia("(max-width: 738px)").matches) {
+        setVisiblePosts(1); 
+      } else if (window.matchMedia("(max-width: 1024px)").matches) {
+        setVisiblePosts(2); 
+      } else {
+        setVisiblePosts(3); // Show 3 posts otherwise
+      }
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add listener for resize
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup listener
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
 
   const data = useLoaderData();
 
@@ -37,15 +63,15 @@ function HomePage() {
         </div>
         <div className="homeItem">
           <Suspense fallback={<p>Loading posts...</p>}>
-            <Await
-              resolve={data.postResponse}
-              errorElement={<p>Error loading posts!</p>}
-            >
-              {(postResponse) =>
-                <List posts={postResponse.data.slice(0, 3)} />
-              }
-            </Await>
-          </Suspense>
+          <Await
+            resolve={data.postResponse}
+            errorElement={<p>Error loading posts!</p>}
+          >
+            {(postResponse) => (
+              <List posts={postResponse.data.slice(0, visiblePosts)} />
+            )}
+          </Await>
+        </Suspense>
         </div>
       </div>
       <div className="whatWeDo">

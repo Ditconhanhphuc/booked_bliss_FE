@@ -15,11 +15,11 @@
     }
 
     @include md{
-        max-width: 768px;
+        max-width: 1024px;
     }
 
     @include sm{
-        max-width: 640px;
+        max-width: 768px;
     }
 
     .content {

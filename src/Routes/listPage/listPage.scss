@@ -53,14 +53,36 @@
         width: 100%;
         height: 50%;
 
+        @include responsive.md {
+            flex-direction: column;
+        }
+
         @include responsive.sm {
-            flex-direction: row;
+            flex-direction: column;
         }
 
         .mapContainer {
             flex: 1;
             height: 300px;
             // border-right: 1px #ccc solid;
+
+            @include responsive.md {
+                flex: initial;
+            }
+
+            @include responsive.sm {
+                flex: initial;
+            }
+
+            .filter-sidebar{
+                @include responsive.md {
+                    display: none;
+                }
+    
+                @include responsive.sm {
+                    display: none;
+                }
+            }
 
             .wrapper {
                 height: 100%;
@@ -74,35 +96,30 @@
         .listContainer {
             flex: 4;
             display: grid;
-            grid-template-columns: repeat(3, 1fr); 
+            grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(auto-fill, 450px);
             grid-auto-flow: dense;
-            gap: 10px; 
-            row-gap: 10px; 
+            gap: 10px;
+            row-gap: 10px;
             margin-left: 18px;
             margin-top: 20px;
             justify-items: center;
             align-items: center;
-            overflow-y: scroll; 
+            overflow-y: scroll;
             scrollbar-width: none;
-            height: 168vh; 
+            height: 168vh;
 
-            @include responsive.lg {
-                display: grid;
-        grid-template-columns: repeat(2, 1fr); 
-               
-            }
+
             @include responsive.md {
-                display: grid;
-        grid-template-columns: repeat(1, 1fr); 
-               
+                grid-template-columns: repeat(2, 1fr);
+                flex: initial;
             }
 
-                @include responsive.sm {
-                    display: grid;
-            grid-template-columns: repeat(1, 1fr); 
-                   
-                }
+            @include responsive.sm {
+                grid-template-columns: repeat(1, 1fr);
+                flex: initial;
+                margin: 0;
             }
-        }        
+        }
     }
+}
