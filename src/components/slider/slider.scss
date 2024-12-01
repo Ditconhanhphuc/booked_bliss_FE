@@ -7,7 +7,7 @@
     gap: 20px;
 
     @include responsive.sm {
-        
+        height: 200px;
     }
 
     .fullSlider {
@@ -63,9 +63,11 @@
         object-fit: cover;
         border-radius: 10px;
         cursor: pointer;
+
     }
     .bigImage {
         flex: 3;
+
 
     }
     .smallImage {
@@ -74,8 +76,15 @@
         flex-direction: column;
         justify-content: space-between;
         gap: 20px;
+
+        @include responsive.sm {
+            justify-content: flex-start;
+        }
         img{
             height: 150px;
+            @include responsive.sm {
+                height: 52px;
+            }
         }
     }
 }

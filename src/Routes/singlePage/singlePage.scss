@@ -7,9 +7,17 @@
     margin: 40px 100px 20px 100px;
     height: 100%;
 
+    @include responsive.sm {
+        margin: 40px 20px 20px 50px;
+    }
+
     .details{
 
         .wrapper{
+            
+            @include responsive.sm {
+                margin: 0 30px;
+            }
 
             .info{
                 margin-top: 50px;
@@ -22,6 +30,10 @@
                         gap: 20px;
                         h1{
                             font-weight: 400;
+
+                            @include responsive.sm {
+                                font-size: 20px;
+                            }
                         }
 
                         .address{
@@ -44,6 +56,11 @@
                             width: max-content;
                             font-size: 20px;
                             font-weight: 300;
+
+                            @include responsive.sm {
+                                font-size: 16px;
+                                padding: 2px;
+                            }
                         }
                     }
                     .user{
@@ -58,11 +75,25 @@
                         color: #fff;
                         font-weight: 600;
 
+                            @include responsive.sm {
+                                padding: 0 20px;
+                            }
+
                         img{
                             width: 70px;
                             height: 70px;
                             border-radius: 50%;
                             object-fit: cover;
+
+                            @include responsive.sm {
+                                width: 40px;
+                                height: 40px;
+                            }
+                        }
+                        span {
+                            @include responsive.sm {
+                                font-size: 16px;
+                            }
                         }
                     }
                 }
@@ -80,6 +111,11 @@
         justify-content: space-between;
         margin: 0 40px;
 
+        @include responsive.md {
+            flex-direction: column;
+            gap: 30px;
+        }
+
         .featureContainer{
 
             .feature{
@@ -92,7 +128,17 @@
                     width: 30px;
                     height: 30px;
                 }
+                @include responsive.md {
+                    display: flex;
+                    margin: 0 140px;
+                }
+
+                @include responsive.md {
+                    display: flex;
+                    margin: 0 20px;
+                }
             }
+
         }
 
         .places{
@@ -125,6 +171,12 @@
             width: 100%;
             height: 500px;
             margin-left: 44px;
+
+            
+            @include responsive.sm {
+                height: 300px;
+                margin-left: 0;
+            }
         }
     }
 
@@ -132,6 +184,10 @@
         display: flex;
         justify-content: center;
         gap: 60px;
+
+        @include responsive.sm {
+            margin: 0 30px;
+        }
         button{
             padding: 20px;
             display: flex;
@@ -141,6 +197,9 @@
             border: 1px solid #2A2A68;
             border-radius: 5px;
             cursor: pointer;
+            @include responsive.sm {
+                padding: 16px;
+            }
             img{
                 width: 30px;
                 height: 30px;
@@ -163,6 +222,14 @@
     width: 300px;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    @include responsive.md {
+        width: 520px;
+    }
+
+    @include responsive.sm {
+        width: 280px;
+    }
 }
 
 .title{

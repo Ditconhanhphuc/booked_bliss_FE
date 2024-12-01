@@ -1,9 +1,18 @@
+@use "../../responsive.scss" as responsive;
 .card {
     display: flex;
     flex-direction: column;
     gap: 10px;
     width: 320px; 
     height: auto;
+
+    @include responsive.md {
+        margin: 0 20px;
+    }
+
+    @include responsive.sm{
+        margin: 0 34px 20px 34px;
+    }
 
     .imageContainer {
         height: 200px;
