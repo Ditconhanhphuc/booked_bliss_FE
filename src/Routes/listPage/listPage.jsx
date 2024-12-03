@@ -4,7 +4,7 @@ import { Await, useLoaderData } from 'react-router-dom';
 import SearchBar from '../../components/searchBar/SearchBar';
 import Filter from '../../components/filter/filter';
 import Map from '../../components/map/Map';
-import Card from '../../components/card/card';
+import Card from '../../components/card/Card';
 import './listPage.scss';
 
 function ListPage() {

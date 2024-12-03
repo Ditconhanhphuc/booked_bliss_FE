@@ -1,5 +1,5 @@
 import './list.scss';
-import Card from '../card/card';
+import Card from '../card/Card';
 
 function List({posts}){
   return (
