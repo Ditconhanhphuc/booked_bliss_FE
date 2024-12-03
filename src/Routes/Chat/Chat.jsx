@@ -1,7 +1,7 @@
 import { Suspense, useState } from "react";
 import { Await, useLoaderData, useNavigate } from 'react-router-dom';
 import "./chat.scss";
-import Chat from "../../components/chat/chat";
+import Chat from "../../components/chat/Chat";
 // import BackSiteButton from "../../components/backsite/backsite";
 function ChatPage() {
     const data = useLoaderData();

@@ -7,19 +7,19 @@ import {
   // Link,
 } from "react-router-dom";
 import { Layout, RequireAuth } from "./routes/layout/layout";
-import SinglePage from "./routes/singlePage/SinglePage";
+import SinglePage from "./routes/singlePage/singlePage";
 import Profile from "./routes/UserProfile/userProfile";
 import NewPostPage from "./routes/newPostPage/newPostPage";
-import HomePage from "./Routes/homePage/homePage";
-import Register from "./routes/register/register";
+import HomePage from "./routes/homePage/homePage";
+import Register from "./routes/register/Register";
 import Login from "./routes/login/login";
 import ProfileUpdatePage from "./routes/profileUpdatePage/profileUpdatePage"
 import { listPageLoader, singPageLoader, profilePageLoader, homePageLoader, chatPageLoader } from "./lib/loaders";
-import ContactUs from "./Routes/LeftoverPage/ContactUs";
-import TypeofHouses from "./Routes/LeftoverPage/TypeOfHouses";
-import FAQPage from "./Routes/FAQPage/FAQPAge";
-import Cooperation from "./Routes/LeftoverPage/Cooperation";
-import Agents from "./Routes/LeftoverPage/Agents";
+import ContactUs from "./routes/LeftoverPage/ContactUs";
+import TypeofHouses from "./routes/LeftoverPage/TypeOfHouses";
+import FAQPage from "./routes/FAQPage/FAQPAge";
+import Cooperation from "./routes/LeftoverPage/Cooperation";
+import Agents from "./routes/LeftoverPage/Agents";
 import ChatPage from "./routes/Chat/Chat";
 
 function App() {
